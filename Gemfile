@@ -15,6 +15,7 @@ gem 'jquery-rails', '~> 2.1.3'
 gem 'rails3-jquery-autocomplete'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'twitter-bootstrap-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'rolify'
 
 # uploader

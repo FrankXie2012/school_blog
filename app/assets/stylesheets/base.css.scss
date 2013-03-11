@@ -1,0 +1,51 @@
+@import 'constant';
+
+.red{color: $red;}
+.dark{color: $dark;}
+.blue{color: $blue;}
+.green{color: $green;}
+.hidden{display: none !important;}
+.normal {font-weight: normal !important;}
+.bold   {font-weight: bold !important;}
+.full-width{ width: 100% !important;}
+.lalign { text-align: left !important;}
+.ralign { text-align: right !important;}
+.center{text-align: center !important;}
+
+@for $i from 10 through 100{
+  .offset0#{$i}{
+    margin-left: $i/10.0*1% !important;
+  }
+  .roffset0#{$i}{
+    margin-right: $i/10.0*1% !important;
+  }
+}
+@for $i from 10 through 200{
+  .w#{$i}{
+    width: $i+px !important;
+  }
+}
+@for $i from 5 through 20{
+  .inner#{$i}{
+    padding: $i+px !important;
+  }
+}
+@for $f from 12 through 40{
+  .f#{$f*5}{
+    font-size: $f*5% !important;
+  }
+}
+@for $i from 0 through 50{
+  .ml#{$i}{
+    margin-left: $i+px !important;
+  }
+  .mr#{$i}{
+    margin-right: $i+px !important;
+  }
+  .mt#{$i}{
+    margin-top: $i+px !important;
+  }
+  .mb#{$i}{
+    margin-bottom: $i+px !important;
+  } 
+}

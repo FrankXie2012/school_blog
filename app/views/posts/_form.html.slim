@@ -1,15 +1,15 @@
-= form_for @post do |f|
+= simple_form_for @post do |f|
   - if @post.errors.any?
     #error_explanation
       h2 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
       ul
         - @post.errors.full_messages.each do |message|
           li = message
+  .container-fluid
+    .row-fluid
+      .span3
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :content
-    = f.text_area :content
-  .actions = f.submit 'Save'
+      .span9
+        = f.input :title, placeholder: "Title", input_html: {class: 'full-width'}
+        = f.input :content, placeholder: "Content", input_html: {class: 'full-width'}
+        = f.submit 'Save', class: 'btn btn-primary full-width bold blue'
