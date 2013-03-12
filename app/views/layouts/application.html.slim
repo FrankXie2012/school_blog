@@ -15,15 +15,13 @@ html lang="en"
 
   body
     header
-    	.navbar.navbar-fixed-top.navbar-inverse
-    		.navbar-inner
-    			.container
-    				= link_to "School Blog", '#', id: "logo"
-    				.nav.pull-right
-    					= link_to "Home",    '#'
-    					= link_to "Help",    '#'
-    					= link_to "Sign In",    '#'
+      .navbar.navbar-fixed-top.navbar-inverse
+        .navbar-inner
+          .container
+            = render "layouts/navigation"
     .container
+      .notice = notice
+      .alert = alert
       = yield
 	  footer
 	    .row-fluid
