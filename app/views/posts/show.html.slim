@@ -17,7 +17,7 @@ p#notice = notice
             tr
               h1.td.center = @post.title
             tr
-              h4.td = @post.content
+              h4.td = simple_format(@post.content)
 
 
 / = link_to 'Comment', new_post_comment_path

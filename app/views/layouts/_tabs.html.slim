@@ -5,6 +5,7 @@
         ul.nav
           li = link_to 'Home', root_path
           li = link_to 'Search Blogs', '#'
-          li = link_to 'MyBlogs', '/'
+          li = link_to 'My Blogs', '/'
+          li = link_to 'New Blog', [:new, :post]
           - if current_user
             li = link_to "Admin", edit_registration_path(:user)
