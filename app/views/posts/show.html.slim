@@ -1,22 +1,26 @@
 p#notice = notice
 
-p
-  strong Title:
-  = @post.title
-p
-  strong Content:
-  = @post.content
+/ p
+/   strong Title:
+/   = @post.title
+/ p
+/   strong Content:
+/   = @post.content
 
 .container-fluid
   .row-fluid
     .span3
       = render 'user_info'
     .span9
-      = @post.title
-      = @post.content
+      .table-striped
+          table
+            tr
+              h1.td.center = @post.title
+            tr
+              h4.td = @post.content
 
 
-= link_to 'Comment', new_post_comment_path
+/ = link_to 'Comment', new_post_comment_path
 
 = link_to 'Edit', edit_post_path(@post)
 '|

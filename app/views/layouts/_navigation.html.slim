@@ -1,8 +1,11 @@
-= link_to "School Blog", '#', id: "logo"
-.nav.pull-right
-  - if current_user
-    = link_to 'Edit Account', edit_registration_paht(:user) |
-    = link_to 'Sign Out', destroy_user_session_paht, :method => :delete
-  - else
-    = link_to 'Sign Up', new_registration_path(:user) |
-    = link_to 'Sign In', new_session_path(:user)
+.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container
+      = link_to "School Blog", '#', id: "logo", class: 'brand'
+      ul.nav.pull-right
+        - if current_user
+          li = link_to 'Edit Account', edit_registration_path(:user)
+          li = link_to 'Sign Out', destroy_user_session_path, :method => :delete
+        - else
+          li = link_to 'Sign Up', new_registration_path(:user)
+          li = link_to 'Sign In', new_session_path(:user)

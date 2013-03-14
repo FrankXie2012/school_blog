@@ -1,0 +1,41 @@
+h2.pull-left = current_user.name
+.container-fluid
+  .row-fluid
+    .span3
+      .table-striped
+        table
+          tr
+            td Logo
+            td
+          tr
+            td Name
+            td = current_user.name
+          tr
+            td Email
+            td = current_user.email
+          tr
+            td Gender
+            td = current_user.gender
+          tr
+            td Class
+            td = current_user.classroom
+          tr
+            td Phone
+            td = current_user.name
+          tr
+            td Birthday
+            td = current_user.email
+          tr
+            td Hobby
+            td = current_user.gender
+          tr
+            td Motto
+            td = current_user.motto
+    .span9
+      .container
+        - @posts.each do |post|
+          .table-hover
+            tr
+              td = post.created_at
+              td = link_to post.title, post_path(post)
+
