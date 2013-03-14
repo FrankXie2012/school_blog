@@ -7,7 +7,7 @@
           h4.td = simple_format(@post.content)
 
 
-/ = link_to 'Comment', new_post_comment_path
+= link_to 'Comment', new_post_comment_path(@post)
 
 = link_to 'Edit', edit_post_path(@post)
 '|
