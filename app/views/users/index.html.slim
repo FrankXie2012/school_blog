@@ -1,1 +1,17 @@
 h1.center Manage Users
+.table-hover
+	table
+		tr
+			th Username
+			th Email
+			th LoginTimes
+			th
+			th
+			th
+		- @users.each do |user|
+			tr
+				td = link_to user.name, user_path(user)
+				td = user.email
+				td.center = user.sign_in_count
+				td = link_to 'Edit', edit_user_path(user)
+				td = link_to 'Destroy', user_registration_path, :confirm => 'Are you sure you want to destroy your account?', :method => :delete
