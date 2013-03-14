@@ -6,8 +6,7 @@
         tr
           h4.td = simple_format(@post.content)
 
-
-= link_to 'Comment', new_post_comment_path(@post)
+= button_tag 'Comment', class: 'btn btn-success add-comment'
 
 = link_to 'Edit', edit_post_path(@post)
 '|
