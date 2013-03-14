@@ -1,0 +1,8 @@
+h1 = "Recent blogs"
+.container
+  - @posts.each do |post|
+    .table-hover
+      tr
+        td = post.created_at
+        td = link_to post.title, post_path(post)
+        / td = post.user.name

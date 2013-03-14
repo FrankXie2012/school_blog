@@ -24,4 +24,8 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  def all_blogs
+    @posts = Post.all
+  end
 end

@@ -20,9 +20,12 @@ html lang="en"
         = render "layouts/navigation"
         = render "layouts/tabs"
       .row-fluid
-        .span3
-          = render "layouts/user_info"
-        .span9
+        - if user_signed_in?
+          .span3
+            = render "layouts/user_info"
+          .span9
+            = yield
+        - else
           = yield
       footer
         .row-fluid

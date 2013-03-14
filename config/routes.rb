@@ -7,5 +7,5 @@ SchoolBlog::Application.routes.draw do
   end
 
   match 'admins' => 'admins#index'
-  root :to => "users#index"
+  root :to => "users#all_blogs"
 end
