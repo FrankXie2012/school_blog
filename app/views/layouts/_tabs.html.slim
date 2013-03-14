@@ -1,0 +1,10 @@
+- if user_signed_in?
+  .navbar
+    .navbar-inner
+      .container
+        ul.nav
+          li = link_to 'Home', root_path
+          li = link_to 'Search Blogs', '#'
+          li = link_to 'MyBlogs', '/'
+          - if current_user
+            li = link_to "Admin", edit_registration_path(:user)
