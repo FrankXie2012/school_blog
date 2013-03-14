@@ -8,4 +8,4 @@
           li = link_to 'My Blogs', '/'
           li = link_to 'New Blog', [:new, :post]
           - if current_user
-            li = link_to "Admin", edit_registration_path(:user)
+            li = link_to "Admin", admins_path

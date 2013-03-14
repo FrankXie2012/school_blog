@@ -6,5 +6,6 @@ SchoolBlog::Application.routes.draw do
     resources :comments
   end
 
+  match 'admins' => 'admins#index'
   root :to => "users#index"
 end

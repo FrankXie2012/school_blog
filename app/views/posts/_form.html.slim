@@ -6,10 +6,6 @@
         - @post.errors.full_messages.each do |message|
           li = message
   .container-fluid
-    .row-fluid
-      .span3
-        = render 'user_info'
-      .span9
-        = f.input :title, placeholder: "Title", input_html: {class: 'full-width'}
-        = f.input :content, placeholder: "Content", input_html: {class: 'full-width'}
-        = f.submit 'Save', class: 'btn btn-primary full-width bold blue'
+    = f.input :title, placeholder: "Title", input_html: {class: 'full-width'}
+    = f.input :content, placeholder: "Content", input_html: {class: 'full-width'}
+    = f.submit 'Save', class: 'btn btn-primary full-width bold blue'

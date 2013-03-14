@@ -1,0 +1,9 @@
+h1.center Administration
+.center
+	.btn-group
+		.btn.btn-warning.btn-large
+			= link_to 'Manage Users', users_path
+		.btn.btn-success.btn-large
+		  = link_to 'Manage Posts', posts_path
+		.btn.btn-primary.btn-large
+		  = link_to 'Manage Comments', post_comments_path(1)

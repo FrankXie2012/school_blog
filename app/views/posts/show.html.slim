@@ -1,23 +1,10 @@
-p#notice = notice
-
-/ p
-/   strong Title:
-/   = @post.title
-/ p
-/   strong Content:
-/   = @post.content
-
 .container-fluid
-  .row-fluid
-    .span3
-      = render 'user_info'
-    .span9
-      .table-striped
-          table
-            tr
-              h1.td.center = @post.title
-            tr
-              h4.td = simple_format(@post.content)
+  .table-striped
+      table
+        tr
+          h1.td.center = @post.title
+        tr
+          h4.td = simple_format(@post.content)
 
 
 / = link_to 'Comment', new_post_comment_path

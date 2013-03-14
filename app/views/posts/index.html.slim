@@ -1,21 +1,9 @@
-h1 Listing posts
-
-table
-  tr
-    th Title
-    th Content
-    th
-    th
-    th
-
+h1 = "#{current_user.name}'s blogs"
+.container
   - @posts.each do |post|
-    tr
-      td = post.title
-      td = post.content
-      td = link_to 'Show', post
-      td = link_to 'Edit', edit_post_path(post)
-      td = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
-
-br
-
+    .table-hover
+      tr
+        td = post.created_at
+        td = link_to post.title, post_path(post)
+        / td = post.user.name
 = link_to 'New Post', new_post_path

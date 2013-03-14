@@ -20,7 +20,10 @@ html lang="en"
         = render "layouts/navigation"
         = render "layouts/tabs"
       .row-fluid
-        = yield
+        .span3
+          = render "layouts/user_info"
+        .span9
+          = yield
       footer
         .row-fluid
           .small
