@@ -12,19 +12,19 @@
         td = current_user.email
       tr
         td Gender
-        td = current_user.gender
+        td = current_user.get_gender
       tr
         td Class
         td = current_user.classroom
       tr
         td Phone
-        td = current_user.name
+        td = current_user.phone
       tr
         td Birthday
-        td = current_user.birthday
+        td = current_user.birthday.to_s
       tr
         td Hobby
-        td = current_user.gender
+        td = current_user.hobby
       tr
         td Motto
         td = current_user.motto

@@ -10,8 +10,8 @@ h2 Edit User
     = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
     = f.input :name, required: true, label: "Username"
     = f.input :classroom, label: "Class"
-    = f.input :gender, as: :select, collection: [["Male", 0], ["Female", 1]]
-    = f.input :phone, label: "Phone Number"
+    = f.input :gender, as: :select, collection: User::GENDER, include_blank: false
+    = f.input :phone
     = f.input :birthday, as: :string, input_html: { data: { behaviour: 'datepicker'} }
     = f.input :hobby
     = f.input :motto, input_html: {class: 'textfield'}
