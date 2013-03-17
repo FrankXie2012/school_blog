@@ -7,6 +7,9 @@
           h4.td = simple_format(@post.content)
 
 = button_tag 'Comment', class: 'btn btn-success add-comment'
+.comment-form.hidden
+  = render 'comment_form'
+= render 'comments'
 
 = link_to 'Edit', edit_post_path(@post)
 '|
