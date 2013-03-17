@@ -11,7 +11,7 @@
       th Hobby
       th Motto
     tr
-      td = image_tag(current_user.avatar, :size => "70x70") if current_user&&current_user.has_avatar
+      td = image_tag(@user.avatar, :size => "70x70") if current_user&&current_user.has_avatar
       td = @user.name
       td = @user.email
       td = @user.get_gender

@@ -10,8 +10,10 @@ class User < ActiveRecord::Base
                   :gender, :motto, :hobby, :phone, :birthday, :classroom, :avatar,
                   :avatar_cache
 
+  extend FriendlyId
+  friendly_id :name
   mount_uploader :avatar, AvatarUploader
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   has_many :posts, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
