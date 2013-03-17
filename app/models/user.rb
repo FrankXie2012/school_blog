@@ -7,8 +7,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name,
-                  :gender, :motto, :hobby, :phone, :birthday, :classroom
+                  :gender, :motto, :hobby, :phone, :birthday, :classroom, :avatar,
+                  :avatar_cache
 
+  mount_uploader :avatar, AvatarUploader
   validates :name, presence: true
   has_many :posts, :dependent => :destroy
   has_many :comments, :dependent => :destroy
@@ -17,5 +19,9 @@ class User < ActiveRecord::Base
 
   def get_gender
     self.gender==true ? 'Female' : 'Male'
+  end
+
+  def has_avatar
+    self.avatar_url rescue nil
   end
 end

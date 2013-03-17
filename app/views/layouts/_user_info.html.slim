@@ -3,7 +3,7 @@
     table
       tr
         td Logo
-        td
+        td = image_tag(current_user.avatar, :size => "150x150") if current_user&&current_user.has_avatar
       tr
         td Name
         td = current_user.name
