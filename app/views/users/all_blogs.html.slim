@@ -5,4 +5,4 @@ h1 = "Recent blogs"
       tr
         td = post.created_at
         td = link_to post.title, post_path(post)
-        / td = post.user.name
+        td = link_to post.user.name, user_path(post.user) rescue nil

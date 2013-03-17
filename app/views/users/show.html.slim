@@ -1,29 +1,29 @@
 .table-striped
   table
     tr
-      td Logo
+      th Logo
+      th Name
+      th Email
+      th Gender
+      th Class
+      th Phone
+      th Birthday
+      th Hobby
+      th Motto
+    tr
       td
-    tr
-      td Name
       td = @user.name
-    tr
-      td Email
       td = @user.email
-    tr
-      td Gender
-      td = @user.gender
-    tr
-      td Class
+      td = @user.get_gender
       td = @user.classroom
-    tr
-      td Phone
       td = @user.name
-    tr
-      td Birthday
       td = @user.birthday
-    tr
-      td Hobby
       td = @user.gender
-    tr
-      td Motto
       td = @user.motto
+h1 = "#{@user.name}'s blogs"
+- @posts.each do |post|
+  .row-fluid
+    .span3 = post.created_at
+    .span6 = link_to post.title, post_path(post)
+    .span1 = link_to 'Edit', edit_post_path(post)
+    .span2 = link_to 'Delete', post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
