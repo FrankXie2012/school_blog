@@ -4,7 +4,9 @@
         tr
           h1.td.center = @post.title
         tr
-          h4.td = simple_format(@post.content)
+          h4.td
+          	= image_tag(@post.avatar) if @post.avatar&&@post.has_avatar
+          	= simple_format(@post.content)
 
 = button_tag 'Comment', class: 'btn btn-success add-comment'
 .comment-form.hidden
