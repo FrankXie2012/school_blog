@@ -7,11 +7,17 @@ h1.center Manage Users
 			th LoginTimes
 			th
 			th
-			th
+			th Role
+			th Operation
 		- @users.each do |user|
 			tr
 				td = link_to user.name, user_path(user)
 				td = user.email
 				td.center = user.sign_in_count
-				td = link_to 'Edit', edit_user_path(user)
+				td = link_to 'Edit', edit_user_admin_path(user)
 				td = link_to 'Destroy', user_registration_path, :confirm => 'Are you sure you want to destroy your account?', :method => :delete
+				td.center = user.show_role rescue nil
+				- if user.show_role == 'Admin'
+					td = button_to "Set to Common User", set_to_common_user_path(id: user.id), :class => "btn btn-success set-to-common-user"
+				- else
+					td = button_to "Set to Admin", set_to_admin_path(id: user.id), :class => "btn btn-warning set-to-admin"

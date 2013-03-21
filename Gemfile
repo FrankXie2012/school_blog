@@ -18,7 +18,7 @@ gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'jquery_datepicker'
 gem 'bootstrap-datepicker-rails'
-gem 'rolify'
+gem 'easy_roles'
 gem "friendly_id", "~> 4.0.9"
 
 # uploader

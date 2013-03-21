@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
                   :gender, :motto, :hobby, :phone, :birthday, :classroom, :avatar,
                   :avatar_cache
 
+  easy_roles :roles
   extend FriendlyId
   friendly_id :name
   mount_uploader :avatar, AvatarUploader
@@ -25,5 +26,17 @@ class User < ActiveRecord::Base
 
   def has_avatar
     self.avatar_url rescue nil
+  end
+
+  def show_role
+    self.roles == [] ? 'Common User' : self.roles.first.capitalize
+  end
+
+  def set_admin
+    self.add_role 'admin'
+  end
+
+  def set_common_user
+    self.remove_role 'admin'
   end
 end
