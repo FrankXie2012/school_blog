@@ -4,14 +4,7 @@ class AdminsController < ApplicationController
   def index
   end
 
-  def edit_user
-  	@user = User.find(params[:id])
-  	@user.set_role
-  	redirect_to admin_path
-  end
-
   def set_to_admin
-    ap params
   	@user = User.find(params[:id])
   	@user.set_admin
   	@user.save!
@@ -22,6 +15,9 @@ class AdminsController < ApplicationController
   	@user = User.find(params[:id])
   	@user.set_common_user
   	@user.save!
-  	redirect_to users_path
+  	# redirect_to users_path
+    respond_to do |format|
+      format.js
+    end
   end
 end
