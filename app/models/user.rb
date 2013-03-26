@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
   mount_uploader :avatar, AvatarUploader
-  validates :name, presence: true, uniqueness: true
+  validates :name, uniqueness: true
   has_many :posts, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
