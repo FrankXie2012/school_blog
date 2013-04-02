@@ -1,0 +1,8 @@
+h1 = "Recent Posts"
+.container
+  - @posts.each do |post|
+    .table-hover
+      tr
+        td = post.created_at
+        td = link_to post.title, post_path(post)
+        td = link_to post.user.name, user_path(post.user) rescue nil
