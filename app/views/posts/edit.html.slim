@@ -4,5 +4,7 @@ h1 Editing post
 
 = link_to 'Show', @post
 '|
-= link_to 'Back', posts_path
-
+- if current_user.has_role?('admin')
+	= link_to 'Back', root_path
+- else
+	= link_to 'Back', posts_path

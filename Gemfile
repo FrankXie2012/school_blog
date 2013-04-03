@@ -20,6 +20,7 @@ gem 'jquery_datepicker'
 gem 'bootstrap-datepicker-rails'
 gem 'easy_roles'
 gem "friendly_id", "~> 4.0.9"
+gem 'thin'
 
 # uploader
 gem 'carrierwave'
