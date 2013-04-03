@@ -6,7 +6,4 @@ h1 = "Recent Posts"
         td = post.created_at
         td = link_to post.title, post_path(post)
         td = link_to post.user.name, user_path(post.user) rescue nil
-        - if current_user.has_role?('admin')
-        	td = link_to 'Edit', edit_post_path(post)
-        	td = link_to 'Delete', post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
   = link_to 'Back', admins_path

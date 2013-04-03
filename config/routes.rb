@@ -4,6 +4,9 @@ SchoolBlog::Application.routes.draw do
     member do
       get :user_info
     end
+    collection do
+      get :edit_posts
+    end
   end
 
   resources :posts do
