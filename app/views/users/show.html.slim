@@ -1,31 +1,30 @@
-.table-striped
-  table
-    tr
-      th Logo
-      th Name
-    tr
-      td = image_tag(@user.avatar, :size => "70x70") if current_user&&current_user.has_avatar
-      td = @user.name
-    .pull-right
-      = button_tag "User Details", :class => "btn btn-success show-details"
-    tr.details.hidden
-      th Email
-      th Address
-      th Gender
-      th Class
-      th Phone
-      th Birthday
-      th Hobby
-      th Motto
-    tr.details.hidden
-      td = @user.email
-      td = @user.address
-      td = @user.get_gender
-      td = @user.classroom
-      td = @user.phone
-      td = @user.birthday
-      td = @user.hobby
-      td = @user.motto
+table.table-striped
+  tr
+    th Logo
+    th Name
+  tr
+    td = image_tag(@user.avatar, :size => "70x70") if current_user&&current_user.has_avatar
+    td = @user.name
+  .pull-right
+    = button_tag "User Details", :class => "btn btn-success show-details"
+  tr.details.hidden
+    th Email
+    th Address
+    th Gender
+    th Class
+    th Phone
+    th Birthday
+    th Hobby
+    th Motto
+  tr.details.hidden
+    td = @user.email
+    td = @user.address
+    td = @user.get_gender
+    td = @user.classroom
+    td = @user.phone
+    td = @user.birthday
+    td = @user.hobby
+    td = @user.motto
 h1 = "#{@user.name}'s posts"
 - @posts.each do |post|
   .row-fluid

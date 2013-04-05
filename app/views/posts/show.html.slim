@@ -1,12 +1,11 @@
 .container-fluid
-  .table-striped
-      table
-        tr
-          h1.td.center = @post.title
-        tr
-          h4.td
-          	= image_tag(@post.avatar) if @post.avatar&&@post.has_avatar
-          	= simple_format(@post.content)
+  table.table-striped
+    tr
+      h1.td.center = @post.title
+    tr
+      h4.td
+      	= image_tag(@post.avatar) if @post.avatar&&@post.has_avatar
+      	= simple_format(@post.content)
 
 = button_tag 'Comment', class: 'btn btn-success add-comment'
 .comment-form.hidden

@@ -1,0 +1,14 @@
+h1 = "Manage Comments"
+.container
+  - @posts.each do |post|
+    table.table-hover
+      tr
+        td = link_to post.title, '#'
+        td = link_to post.user.name, user_path(post.user) rescue nil
+        - post.comments.each do |comment|
+          tr.hidden
+            td = comment.body
+            td = comment.user.name
+            td = link_to 'Edit', edit_post_comment_path(post, comment)
+            td = link_to 'Delete', post_comment_path(post, comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete
+  = link_to 'Back', admins_path

@@ -1,9 +1,8 @@
-.table-hover
-  table
-    - @comments.each do |comment|
-      - if comment.id
-        tr
-          td = link_to comment.user.name, user_path(comment.user)
-          td = comment.created_at
-        tr
-          td = comment.body
+table.table-hover
+  - @comments.each do |comment|
+    - if comment.id
+      tr
+        td = link_to comment.user.name, user_path(comment.user)
+        td = comment.created_at
+      tr
+        td = comment.body

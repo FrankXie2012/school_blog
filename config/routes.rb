@@ -5,7 +5,8 @@ SchoolBlog::Application.routes.draw do
       get :user_info
     end
     collection do
-      get :edit_posts
+      get :manage_posts
+      get :manage_comments
     end
   end
 

@@ -50,7 +50,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def edit_posts
+  def manage_posts
+    @posts = Post.all
+  end
+
+  def manage_comments
     @posts = Post.all
   end
 end
