@@ -34,8 +34,10 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   # POST /comments
