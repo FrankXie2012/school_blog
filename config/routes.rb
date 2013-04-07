@@ -11,7 +11,13 @@ SchoolBlog::Application.routes.draw do
   end
 
   resources :posts do
-    resources :comments
+    resources :comments do
+      member do
+        post :modify
+        post :edit
+        put  :edit
+      end
+    end
   end
 
   resources :admins

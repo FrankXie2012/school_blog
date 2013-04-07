@@ -1,0 +1,1 @@
+$('#<%=dom_id(@comment, 'row')%>').replaceWith("<%= j render( partial:'comments/saved_comment')%>")
