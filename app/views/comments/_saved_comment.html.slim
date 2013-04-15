@@ -3,4 +3,4 @@ tr[id="#{dom_id(@comment, 'row')}"]
     td = @comment.body
     td = @comment.user.name
     td = f.submit 'Edit', class: 'btn btn-success bold'
-  td = link_to 'Delete', post_comment_path(@post, @comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete
+  td = button_to "Delete", post_comment_path(@post, @comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'
