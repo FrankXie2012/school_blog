@@ -1,6 +1,5 @@
 tr[id="#{dom_id(@comment, 'row')}"]
-	= simple_form_for [:edit, @post, @comment], remote: true do |f|
-	  td = @comment.body
-	  td = @comment.user.name
-	  td = f.submit 'Edit', class: 'btn btn-success bold'
-	td = link_to 'Delete', post_comment_path(@post, @comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete
+  td = @comment.body
+  td = @comment.user.name
+  td = link_to 'Edit', [:edit, @post, @comment], remote: true
+  td = link_to 'Delete', post_comment_path(@post, @comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete

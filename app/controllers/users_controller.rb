@@ -57,4 +57,14 @@ class UsersController < ApplicationController
   def manage_comments
     @posts = Post.all
   end
+
+  def set_role
+    @user = User.find(params[:id])
+    @user.set_role
+    @user.save!
+    @user.reload
+    respond_to do |format|
+      format.js
+    end
+  end
 end

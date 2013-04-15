@@ -32,11 +32,7 @@ class User < ActiveRecord::Base
     self.roles == [] ? 'Common User' : self.roles.first.capitalize
   end
 
-  def set_admin
-    self.add_role 'admin'
-  end
-
-  def set_common_user
-    self.remove_role 'admin'
+  def set_role
+    self.has_role?('admin') ? self.remove_role('admin') : self.add_role('admin')
   end
 end

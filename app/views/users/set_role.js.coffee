@@ -1,0 +1,1 @@
+$('#<%=dom_id(@user, 'row')%>').replaceWith('<%= j render(@user)%>')

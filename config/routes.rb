@@ -3,6 +3,8 @@ SchoolBlog::Application.routes.draw do
   resources :users do
     member do
       get :user_info
+      put :set_role
+      post :set_role
     end
     collection do
       get :manage_posts
@@ -23,8 +25,6 @@ SchoolBlog::Application.routes.draw do
   resources :admins
 
   match 'admins' => 'admins#index'
-  match 'set_to_admin' => 'admins#set_to_admin'
-  match 'set_to_common_user' => 'admins#set_to_common_user'
 
   root :to => "users#all_posts"
 end
