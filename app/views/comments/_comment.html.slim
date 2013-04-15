@@ -1,0 +1,6 @@
+tr[id="#{dom_id(comment, 'form')}"]
+  = simple_form_for [:modify, @post, comment], remote: true do |f|
+    td.comment-body = f.input :body, label: false, as: :string, value: comment.body, input_html: {class: 'input-xlarge'}
+    td = comment.user.name
+    td = f.submit 'Save', class: 'btn btn-warning bold', id: dom_id(comment, 'save')
+  td = button_to "Delete", post_comment_path(@post, comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'
