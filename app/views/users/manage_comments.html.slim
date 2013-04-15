@@ -10,8 +10,9 @@ h1 Manage Comments
       tbody.comments.hidden
         - post.comments.each do |comment|
           tr[id="#{dom_id(comment, 'row')}"]
-            td = comment.body
-            td = comment.user.name
-            td = link_to 'Edit', [:edit, post, comment], remote: true
+            = simple_form_for [:edit, post, comment], remote: true do |f|
+              td = comment.body
+              td = comment.user.name
+              td = f.submit 'Edit', class: 'btn btn-success bold'
             td = link_to 'Delete', post_comment_path(post, comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete
   = link_to 'Back', admins_path

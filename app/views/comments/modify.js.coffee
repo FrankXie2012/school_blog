@@ -1,1 +1,1 @@
-$('#<%=dom_id(@comment, 'row')%>').replaceWith("<%= j render( partial:'comments/saved_comment')%>")
+$("#<%=dom_id(@comment, 'form')%>").replaceWith("<%= j render( partial:'comments/saved_comment')%>")
