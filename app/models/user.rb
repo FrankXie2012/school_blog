@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name,
                   :gender, :motto, :hobby, :phone, :birthday, :classroom, :avatar,
-                  :avatar_cache, :address
+                  :avatar_cache, :address, :crop_x, :crop_y, :crop_w, :crop_h
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :crop_avatar
 
   easy_roles :roles
   extend FriendlyId
@@ -19,6 +22,10 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
 
   GENDER = [['Male', 0], ['Female', 1]].freeze
+
+  def crop_avatar
+    avatar.recreate_versions! if crop_x.present?
+  end
 
   def get_gender
     self.gender==true ? 'Female' : 'Male'

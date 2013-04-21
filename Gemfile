@@ -24,8 +24,7 @@ gem 'thin'
 
 # uploader
 gem 'carrierwave'
-gem 'mini_magick'
-
+gem 'rmagick'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -43,6 +42,7 @@ end
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'quiet_assets'
+  gem 'meta_request'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
