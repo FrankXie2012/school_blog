@@ -67,4 +67,9 @@ class UsersController < ApplicationController
       format.js
     end
   end
+
+  def school_news
+    @links = current_user.get_school_news
+    ap @links
+  end
 end
