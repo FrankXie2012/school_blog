@@ -45,7 +45,6 @@ class User < ActiveRecord::Base
       links[link.content.to_s]||=[]
       links[link.content.to_s] << link['href']
     end
-    ap links
     links
   end
 end
