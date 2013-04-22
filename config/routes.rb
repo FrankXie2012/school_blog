@@ -7,6 +7,7 @@ SchoolBlog::Application.routes.draw do
       post :set_role
     end
     collection do
+      get :school_news
       get :manage_posts
       get :manage_comments
     end

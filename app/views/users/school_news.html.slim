@@ -1,0 +1,5 @@
+ul.nav.nav-list
+  li.nav-header School News
+  - @links.each do |content, href|
+    li = link_to content, 'http://news.cslg.cn/' + href.first.to_s
+    li.divider

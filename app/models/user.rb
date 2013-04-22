@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  require 'open-uri'
+  require 'nokogiri'
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -34,5 +36,15 @@ class User < ActiveRecord::Base
 
   def set_role
     self.has_role?('admin') ? self.remove_role('admin') : self.add_role('admin')
+  end
+
+  def get_school_news
+    links = {}
+    doc = Nokogiri::HTML(open('http://news.cslg.cn'))
+    doc.css('#AutoNumber5 a').each do |link|
+      links[link.content.to_s]||=[]
+      links[link.content.to_s] << link['href']
+    end
+    links
   end
 end
