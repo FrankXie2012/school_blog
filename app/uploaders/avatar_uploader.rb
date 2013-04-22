@@ -38,4 +38,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
+  def default_url
+    "public/uploads/user/" + [version_name, "missing.jpg"].compact.join('_')
+  end
+
 end
