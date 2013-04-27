@@ -14,11 +14,7 @@ class Post < ActiveRecord::Base
     "#{self.user.name}: #{self.title}"
   end
 
-  scope :with_post_title, ->(keyword){
-    where{title=~"%#{keyword.downcase}%"}
-  }
-
   scope :with_user_name, ->(keyword){
-    joins(:users).where(users.name == keyword)
+    joins(:user).where{users.name=~"%#{keyword.to_s}%"}
   }
 end

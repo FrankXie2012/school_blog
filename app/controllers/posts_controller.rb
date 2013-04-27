@@ -82,7 +82,9 @@ class PostsController < ApplicationController
   end
 
   def autocomplete_search
-    @posts = Post.with_post_title(params[:term]).search(title_cont: params[:term]).result(:distinct =>true)
-    render json: json_for_autocomplete(@posts, :username_with_title)
+    @posts = Post.search(title_cont: params[:term]).result(:distinct =>true)
+    @posts_by_user = Post.with_user_name(params[:term])
+    @posts.to_a << @posts_by_user
+    render json: json_for_autocomplete(@posts.flatten, :username_with_title)
   end
 end
