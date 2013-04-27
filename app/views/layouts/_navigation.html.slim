@@ -3,6 +3,8 @@
     .container
       = link_to "School Blog", '#', id: "logo", class: 'brand'
       ul.nav.pull-right
+        - if user_signed_in?
+          li = text_field_tag :post, nil, placeholder: 'Enter User Name Or Post Title', class: 'autocomplete-search input-large search-query', style: 'margin-top: 6px'
         - if current_user
           li = link_to 'Edit Account', edit_registration_path(:user)
           li = link_to 'Sign Out', destroy_user_session_path, :method => :delete
