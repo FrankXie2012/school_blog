@@ -4,10 +4,11 @@
       = link_to "School Blog", '#', id: "logo", class: 'brand'
       ul.nav.pull-right
         - if user_signed_in?
+          li = link_to '<i class="icon-search"></i> '.html_safe, '#'
           li = text_field_tag :post, nil, placeholder: 'Enter User Name Or Post Title', class: 'autocomplete-search input-large search-query', style: 'margin-top: 6px'
-        - if current_user
-          li = link_to 'Edit Account', edit_registration_path(:user)
-          li = link_to 'Sign Out', destroy_user_session_path, :method => :delete
+          li = link_to '<i class="icon-user"></i> View Account'.html_safe, current_user
+          li = link_to '<i class="icon-edit"></i> Edit Account'.html_safe, edit_registration_path(:user)
+          li = link_to '<i class="icon-signout"></i> Sign Out'.html_safe, destroy_user_session_path, :method => :delete
         - else
-          li = link_to 'Sign Up', new_registration_path(:user)
-          li = link_to 'Sign In', new_session_path(:user)
+          li = link_to '<i class="icon-heart"></i> Sign Up'.html_safe, new_registration_path(:user)
+          li = link_to '<i class="icon-signin"></i> Sign In'.html_safe, new_session_path(:user)
