@@ -1,0 +1,36 @@
+@import 'constant';
+@import 'base';
+
+.hidden{display: none;}
+.ralign{text-align: right !important;}
+
+body{
+  margin: auto;
+  background: $white;
+  overflow: auto;
+}
+
+.wrapper{
+  @include box-shadow;
+  background: lighten($gray, 3%);
+  border: 1px solid #CCC\9;
+}
+
+.logo{
+  background-image: image-url('logo2010.jpg');
+  height: 110px;
+}
+
+footer{
+  @include background-image(linear-gradient(lighten($gray, 3%), $gray 20%, darken($gray, 20%)));
+  *background: darken($gray, 5%);
+  border-top: 1px solid darken($gray, 5%);
+  color: darken($gray, 15%);
+  line-height: 38px;
+  .copyright{
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0px 10px;
+    color: #666;
+  }
+}

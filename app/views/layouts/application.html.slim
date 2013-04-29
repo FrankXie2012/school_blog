@@ -14,8 +14,9 @@ html lang="en"
     = javascript_include_tag "application"
 
   body
-    .container
+    .wrapper.container
       header
+        .logo
         = render 'layouts/alert_and_notice'
         = render "layouts/navigation"
         = render "layouts/tabs"
@@ -29,8 +30,8 @@ html lang="en"
           = yield
       footer
         .row-fluid
-          .small
+          .span3.copy-right
             h4 CSLG &copy; 2013
-          .nav.pull-right
+          .span6.pull-right
             = link_to "About", '#'
             = link_to "Contact", '#'
