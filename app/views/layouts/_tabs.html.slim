@@ -3,9 +3,18 @@
     .navbar-inner
       .container
         ul.nav
-          li = link_to 'Home', root_path
+          li = link_to '<i class="icon-home"></i> Home'.html_safe, root_path
           li = link_to 'School News', school_news_users_path
           li = link_to 'My Posts', posts_path
           li = link_to 'New Post', [:new, :post]
-          - if current_user && current_user.is_admin?
-            li = link_to "Admin", admins_path
+        - if current_user && current_user.is_admin?
+          ul.nav.pull-right
+            li.div.dropdown
+              a.dropdown-toggle data-toggle="dropdown"
+                i.icon-cogs
+                | Admin
+                b class="caret"
+              ul.dropdown-menu
+                li = link_to '<i class="icon-user"></i> Manage Users'.html_safe, users_path
+                li = link_to '<i class="icon-edit"></i> Manage Posts'.html_safe, manage_posts_users_path
+                li = link_to '<i class="icon-comments"></i> Manage Comments'.html_safe, manage_comments_users_path
