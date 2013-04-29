@@ -27,8 +27,5 @@ SchoolBlog::Application.routes.draw do
   end
 
   resources :admins
-
-  match 'admins' => 'admins#index'
-
   root :to => "users#all_posts"
 end
