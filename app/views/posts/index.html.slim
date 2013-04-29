@@ -1,9 +1,10 @@
 h1 = "#{current_user.name}'s posts"
-.container
+.nav
   - @posts.each do |post|
-    .row-fluid
-      .span3 = post.created_at
-      .span6 = link_to post.title, post_path(post)
-      .span1 = link_to 'Edit', edit_post_path(post)
-      .span2 = link_to 'Delete', post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
+    table.table-hover
+      tr
+        td = post.created_at
+        td = link_to post.title, post_path(post)
+        td = link_to 'Edit', edit_post_path(post)
+        td = link_to 'Delete', post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
 = link_to 'New Post', new_post_path
