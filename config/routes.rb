@@ -14,6 +14,9 @@ SchoolBlog::Application.routes.draw do
   end
 
   resources :posts do
+    collection do
+      get :autocomplete_search
+    end
     resources :comments do
       member do
         post :modify

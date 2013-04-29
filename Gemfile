@@ -11,6 +11,7 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'ransack'
+gem 'squeel'
 gem 'awesome_print'
 gem 'jquery-rails', '~> 2.1.3'
 gem 'rails3-jquery-autocomplete'
@@ -23,6 +24,7 @@ gem 'easy_roles'
 gem "friendly_id", "~> 4.0.9"
 gem 'thin'
 gem "nokogiri", "~> 1.5.9"
+gem "font-awesome-rails"
 
 # uploader
 gem 'carrierwave'

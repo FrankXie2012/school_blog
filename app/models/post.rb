@@ -9,4 +9,12 @@ class Post < ActiveRecord::Base
   def has_avatar
     self.avatar_url rescue nil
   end
+
+  def username_with_title
+    "#{self.user.name}: #{self.title}"
+  end
+
+  scope :with_user_name, ->(keyword){
+    joins(:user).where{users.name=~"%#{keyword.to_s}%"}
+  }
 end
