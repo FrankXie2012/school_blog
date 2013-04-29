@@ -4,16 +4,18 @@ h1 Manage Comments
     - @posts.each do |post|
       thead
         tr
-          td = link_to post.user.name, user_path(post.user) rescue nil
-          td.red = post.title
+          td = image_tag(post.user.avatar, size: "40x40", class: 'img-rounded') rescue nil
+          td = link_to post.user.name, user_path(post.user)
+          td = post.title
           td = button_tag(class: "btn btn-primary show-comments") do
             i.icon-comments  Show comments
       tbody.comments.hidden
         - post.comments.each do |comment|
           tr[id="#{dom_id(comment, 'row')}"]
             = simple_form_for [:edit, post, comment], remote: true do |f|
-              td = comment.body
+              td
               td = comment.user.name
+              td = comment.body
               td = button_tag(type: 'submit', class: "btn btn-success bold") do
                 i.icon-pencil  Edit
             td = link_to raw("<i class=\"icon-trash icon-white\"> Delete</i>").html_safe, post_comment_path(post, comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'
