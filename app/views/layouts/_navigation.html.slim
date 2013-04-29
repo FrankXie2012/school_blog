@@ -1,14 +1,31 @@
 .navbar.navbar-fixed-top.navbar-inverse
   .navbar-inner
     .container
-      = link_to "School Blog", '#', id: "logo", class: 'brand'
+      = link_to "School Blog", root_path, id: "logo", class: 'brand'
       ul.nav.pull-right
         - if user_signed_in?
           li = link_to '<i class="icon-search"></i> '.html_safe, '#'
           li = text_field_tag :post, nil, placeholder: 'Enter User Name Or Post Title', class: 'autocomplete-search input-large search-query', style: 'margin-top: 6px'
-          li = link_to '<i class="icon-user"></i> View Account'.html_safe, current_user
-          li = link_to '<i class="icon-edit"></i> Edit Account'.html_safe, edit_registration_path(:user)
-          li = link_to '<i class="icon-signout"></i> Sign Out'.html_safe, destroy_user_session_path, :method => :delete
+          li.divider-vertical
+          li = image_tag(current_user.avatar, size: "40x40", class: 'img-circle')
+          / li.dropdown
+          /   a.dropdown-toggle #{current_user.name}
+          /   ul.dropdown-menu
+          /     li = link_to '<i class="icon-user"></i> View Account'.html_safe, current_user
+          li.div.dropdown
+            a.dropdown-toggle data-toggle="dropdown"
+              strong style="color: white;" #{current_user.name}
+              b class="caret"
+            ul.dropdown-menu
+              / li = link_to '<i class="icon-user"></i> View Account'.html_safe, current_user
+              li = link_to '<i class="icon-user"></i> View Account'.html_safe, current_user
+              li = link_to '<i class="icon-edit"></i> Edit Account'.html_safe, edit_registration_path(:user)
+              li = link_to '<i class="icon-signout"></i> Sign Out'.html_safe, destroy_user_session_path, :method => :delete
+            / <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</a>
+          /   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          /     ...
+          /   </ul>
+          / </div>
         - else
           li = link_to '<i class="icon-heart"></i> Sign Up'.html_safe, new_registration_path(:user)
           li = link_to '<i class="icon-signin"></i> Sign In'.html_safe, new_session_path(:user)
