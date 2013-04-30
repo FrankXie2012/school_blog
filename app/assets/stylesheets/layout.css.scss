@@ -145,3 +145,71 @@ ul.vnav{
     }
   }
 }
+
+.mid-form{
+  width: 360px;
+  margin: 20px auto;
+  border: 2px solid darken($gray, 15%);
+  @include box-sizing(border-box);
+  .title{
+    text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    color: lighten($dark, 20%);
+    padding: 10px;
+    @include background-image(linear-gradient(color-stops($blue, darken($white, 8%))));
+    border-bottom: 1px solid #E5E5E5;
+  }
+  form{
+    margin: 20px !important;
+    input{
+      &[type=text], &[type=password], &[type=email]{
+        width: 306px;
+      }
+      &[type=submit]{
+       width: 320px;
+       *margin-left: 0px;
+      }
+    }
+    .form-actions{
+      padding: 5px 10px;
+      border: 1px solid #E5E5E5;
+      a{
+        color: lighten($dark, 10%);
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.main{
+  padding: 10px 10px 5px 10px;
+  .header{
+    border-bottom: 1px solid darken($gray, 15%);
+    padding: 0px;
+    position: relative;
+    .title{
+      font-size: 22px;
+      color: #333;
+      line-height: 32px;
+    }
+    .right-actions{
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      a{
+        font-weight: bold;
+        margin-left: 5px;
+        padding: 0px 5px;
+      }
+    }
+  }
+  .content{
+    padding: 15px 2px;
+  }
+}
+
+#add_padding{
+  padding: 10px 10px;
+}
