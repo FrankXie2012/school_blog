@@ -8,7 +8,7 @@
           .title = link_to post.user.name, user_path(post.user) rescue nil
           .right-actions = post.created_at
         .box-inner
-          table.table-hover#all_posts_table
+          table.table-hover#full_width_table
             tr
               td = image_tag(post.user.avatar, :size => "50x50", class: 'img-rounded') rescue nil
               td.bold = link_to post.title, post_path(post)

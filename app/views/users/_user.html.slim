@@ -4,9 +4,9 @@ tr[id="#{dom_id(user, 'row')}"]
       i.icon-user
   td = link_to user.name, user_path(user)
   td = user.email
-  td.center#manage_users_icons = link_to '<i class="icon-info-sign"></i>'.html_safe, user_info_user_path(user), class: 'btn'
-  td.center#manage_users_icon = link_to "<i class=\"icon-edit icon-white\"></i>".html_safe, edit_user_path(user), class: 'btn btn-warning'
-  td.center#manage_users_icon = link_to "<i class=\"icon-trash icon-white\"></i>".html_safe, user_path(user), :confirm => 'Are you sure you want to destroy this user?', :method => :delete, class: 'btn btn-danger'
+  td.center#white_visited_icon = link_to '<i class="icon-info-sign"></i>'.html_safe, user_info_user_path(user), class: 'btn'
+  td.center#white_visited_icon = link_to "<i class=\"icon-edit icon-white\"></i>".html_safe, edit_user_path(user), class: 'btn btn-warning'
+  td.center#white_visited_icon = link_to "<i class=\"icon-trash icon-white\"></i>".html_safe, user_path(user), :confirm => 'Are you sure you want to destroy this user?', :method => :delete, class: 'btn btn-danger'
   = simple_form_for [:set_role, user], remote: true do |f|
     - if user.has_role? 'admin'
       td = f.submit 'Set To Common User', class: 'btn btn-info bold'

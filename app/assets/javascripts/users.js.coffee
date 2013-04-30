@@ -1,9 +1,4 @@
 jQuery ->
-  $('.show-details').click ->
-    if $('.details').hasClass('hidden')
-      $('.details').removeClass('hidden')
-    else
-      $('.details').addClass('hidden')
   $ ->
     $(".autocomplete-search").autocomplete
       source: (request, response) ->
@@ -22,5 +17,3 @@ jQuery ->
             )
       select: (event, ui) ->
         window.location.href = '/posts/' + ui.item.id
-    # $('.autocomplete-search').bind 'keyup change', ->
-    #   $('.autocomplete-search').val('I love you')

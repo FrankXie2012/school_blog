@@ -120,7 +120,7 @@ ul.vnav{
   }
 }
 
-#all_posts_table{
+#full_width_table{
   width: 100%
 }
 
@@ -128,14 +128,14 @@ ul.vnav{
   margin-top: 6px
 }
 
-#manage_users_icon{
+#white_visited_icon{
   a {
     color: #fff;
     &:visited {
       color: #fff;
     }
     &:hover {
-      color: #000;
+      color: #ccc;
       text-decoration: none;
     }
   }

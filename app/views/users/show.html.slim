@@ -1,35 +1,21 @@
-table.table-striped
-  tr
-    th Logo
-    th Name
-  tr
-    td = image_tag(@user.avatar, :size => "70x70") if current_user&&current_user.has_avatar
-    td = @user.name
-  .pull-right
-    = button_tag "User Details", :class => "btn btn-success show-details"
-  tr.details.hidden
-    th Email
-    th Address
-    th Gender
-    th Class
-    th Phone
-    th Birthday
-    th Hobby
-    th Motto
-  tr.details.hidden
-    td = @user.email
-    td = @user.address
-    td = @user.get_gender
-    td = @user.classroom
-    td = @user.phone
-    td = @user.birthday
-    td = @user.hobby
-    td = @user.motto
-h1 = "#{@user.name}'s posts"
-- @posts.each do |post|
-  .row-fluid
-    .span3 = post.created_at
-    .span6 = link_to post.title, post_path(post)
-    .span1 = link_to 'Edit', edit_post_path(post)
-    .span2 = link_to 'Delete', post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
-= link_to "Back", :back
+.nav
+  .box-group
+    .box-header
+      .title.f200 = @user.name
+    .box-inner
+      nav.row-fluid
+        .span2.ralign
+          = image_tag(@user.avatar, :size => "80x80", class: 'img-rounded') if current_user&&current_user.has_avatar
+        .span10.bold#white_visited_icon
+          = link_to "<i class=\"icon-user icon-large\"></i> Detail Information about blogger".html_safe, user_info_user_path, class: 'btn btn-info'
+  .box-group
+    .box-header
+      .title.f200 = "#{@user.name}'s Posts"
+    .box-inner
+      table.table.table-hover#full_width_table
+        - @posts.each do |post|
+          tr
+            td = link_to "<i class=\"icon-file-alt\"></i> #{post.title}".html_safe, post_path(post)
+            td = link_to "<i class=\"icon-comments-alt\"></i> #{post.comments.length}".html_safe, post_path(post)
+.pull-right
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'

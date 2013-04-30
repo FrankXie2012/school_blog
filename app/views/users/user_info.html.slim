@@ -1,42 +1,50 @@
-table.table-striped.lalign
-  tr
-    th Logo
-    td = image_tag(@user.avatar, :size => "70x70") if @user.has_avatar
-    th Address
-    td = @user.address
-  tr
-    th Name
-    td = @user.name
-    th Email
-    td = @user.email
-  tr
-    th Gender
-    td = @user.get_gender
-    th Class
-    td = @user.classroom
-  tr
-    th Phone
-    td = @user.phone
-    th Birthday
-    td = @user.birthday
-  tr
-    th Hobby
-    td = @user.hobby
-    th Motto
-    td = @user.motto
-  tr
-    th Login Times
-    td = @user.sign_in_count
-    th Create At
-    td = @user.created_at
-  tr
-    th Current Sign In
-    td = @user.current_sign_in_at
-    th Last Sign In
-    td = @user.last_sign_in_at
-  tr
-    th Current Sign In Ip
-    td = @user.current_sign_in_ip
-    th Last Sign In Ip
-    td = @user.last_sign_in_ip
-= link_to "Back", :back
+.box-group
+    .box-header
+      .title
+        span.icon-user &nbsp;
+        span &nbsp;
+        span = @user.name
+    .box-inner
+        table.table.table-bordered.lalign#full_width_table
+          tr.success
+            th Logo
+            td = image_tag(@user.avatar, :size => "160x160", class: 'img-polaroid') if @user.has_avatar
+            th Address
+            td = @user.address
+          tr.error
+            th Name
+            td = @user.name
+            th Email
+            td = @user.email
+          tr.success
+            th Gender
+            td = @user.get_gender
+            th Class
+            td = @user.classroom
+          tr.error
+            th Phone
+            td = @user.phone
+            th Birthday
+            td = @user.birthday
+          tr.success
+            th Hobby
+            td = @user.hobby
+            th Motto
+            td = @user.motto
+          tr.error
+            th Login Times
+            td = @user.sign_in_count
+            th Create At
+            td = @user.created_at
+          tr.success
+            th Current Sign In
+            td = @user.current_sign_in_at
+            th Last Sign In
+            td = @user.last_sign_in_at
+          tr.error
+            th Current Sign In Ip
+            td = @user.current_sign_in_ip
+            th Last Sign In Ip
+            td = @user.last_sign_in_ip
+.pull-right
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'
