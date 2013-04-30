@@ -1,5 +1,8 @@
-ul.nav.nav-list
-  li.nav-header School News
-  - @links.each do |content, href|
-    li = link_to content, 'http://news.cslg.cn/' + href.first.to_s
-    li.divider
+.box-group
+  .box-header
+    .title School News
+  .box-inner
+    ul.vnav
+      - @links.each do |content, href|
+        li = link_to "<i class=\"icon-hand-right\"></i>  #{content}".html_safe, 'http://news.cslg.cn/' + href.first.to_s
+        li.divider

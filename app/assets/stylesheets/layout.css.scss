@@ -100,6 +100,7 @@ ul.vnav{
       display: block;
       padding: 6px 0px 6px 10px;
       &:hover, &.active{
+        color: $blue;
         background: $white;
         text-decoration: none;
         border-right: 2px solid $blue;
