@@ -126,3 +126,16 @@ ul.vnav{
 .autocomplete-search{
   margin-top: 6px
 }
+
+#manage_users_icon{
+  a {
+    color: #fff;
+    &:visited {
+      color: #fff;
+    }
+    &:hover {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}

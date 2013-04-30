@@ -1,26 +1,33 @@
-h1.center Manage Users
-table.table-hover
-  tr
-    th Username
-    th Email
-    th LoginTimes
-    th
-    th
-    th
-    th Role
-    th Operation
-  - @users.each do |user|
-    tr[id="#{dom_id(user, 'row')}"]
-      td = link_to user.name, user_path(user)
-      td = user.email
-      td.center = user.sign_in_count
-      td.center = link_to 'User Info', user_info_user_path(user)
-      td = link_to 'Edit', edit_user_path(user)
-      td = link_to 'Destroy', user_path(user), :confirm => 'Are you sure you want to destroy this user?', :method => :delete
-      td.center.show-role = user.show_role rescue nil
-      = simple_form_for [:set_role, user], remote: true do |f|
-        - if user.has_role? 'admin'
-          td = f.submit 'Set To Common User', class: 'btn btn-info bold'
-        - else
-          td = f.submit 'Set To Admin', class: 'btn btn-success bold w170'
-= link_to "Back", :back
+.nav
+  .box-group
+      .box-header
+        .title.f200 Manage Users
+      .box-inner
+        table.table.table-condensed
+          tr
+            th.center Admin
+            th.center Name
+            th.center
+              i.icon-envelope
+              |  Email
+            th.center Details
+            th.center Edit
+            th.center Delete
+            th.center Operation
+          - @users.each do |user|
+            tr[id="#{dom_id(user, 'row')}"]
+              td.center
+                - if user.has_role? 'admin'
+                  i.icon-user
+              td.center = link_to user.name, user_path(user)
+              td.center = user.email
+              td.center#manage_users_icons = link_to '<i class="icon-info-sign"></i>'.html_safe, user_info_user_path(user), class: 'btn'
+              td.center#manage_users_icon = link_to "<i class=\"icon-edit icon-white\"></i>".html_safe, edit_user_path(user), class: 'btn btn-warning'
+              td.center#manage_users_icon = link_to "<i class=\"icon-trash icon-white\"></i>".html_safe, user_path(user), :confirm => 'Are you sure you want to destroy this user?', :method => :delete, class: 'btn btn-danger'
+              = simple_form_for [:set_role, user], remote: true do |f|
+                - if user.has_role? 'admin'
+                  td.center = f.submit 'Set To Common User', class: 'btn btn-info bold'
+                - else
+                  td.center = f.submit 'Set To Admin', class: 'btn btn-success bold w170'
+.pull-right
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'
