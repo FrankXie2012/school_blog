@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def all_posts
-    @posts = Post.all
+    @posts = Post.find(:all, order: "created_at DESC")
   end
 
   def user_info
