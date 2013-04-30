@@ -3,6 +3,7 @@ tr[id="#{dom_id(@comment, 'row')}"]
     td
     td = @comment.user.name
     td = @comment.body
-    td = button_tag(type: 'submit', class: "btn btn-success bold") do
-      i.icon-pencil  Edit
-    td = link_to raw("<i class=\"icon-trash icon-white\"> Delete</i>").html_safe, post_comment_path(@post, @comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'
+    td
+      = button_tag(type: 'submit', class: "btn btn-success bold") do
+        i.icon-pencil  Edit
+      = link_to raw("<i class=\"icon-trash icon-white\"> Delete</i>").html_safe, post_comment_path(@post, @comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'

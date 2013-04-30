@@ -1,12 +1,19 @@
-h1 = "Manage Posts"
-.container
+.nav
+  .box-group
+      .box-header
+        .title.f200 Manage Posts
   - @posts.each do |post|
-    table.table-hover
-      tr
-        td = post.created_at
-        td = link_to post.title, post_path(post)
-        - if current_user.has_role?('admin')
-        	td = link_to 'Edit', edit_post_path(post)
-        	td = link_to 'Delete', post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
-        td = link_to post.user.name, user_path(post.user) rescue nil
-  = link_to 'Back', admins_path
+    .box-group
+        .box-header
+          .title = link_to post.user.name, user_path(post.user) rescue nil
+          .right-actions = post.created_at
+        .box-inner
+          table.table-hover#all_posts_table
+            tr
+              td = image_tag(post.user.avatar, :size => "50x50", class: 'img-rounded') rescue nil
+              td.bold = link_to post.title, post_path(post)
+              td = link_to "<i class=\"icon-comments-alt\"></i> #{post.comments.length}".html_safe, post_path(post)
+              td = link_to "<i class=\"icon-edit icon-white\"> Edit</i>".html_safe, edit_post_path(post)
+              td = link_to "<i class=\"icon-trash icon-white\"> Delete</i>".html_safe, post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
+.pull-right
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'

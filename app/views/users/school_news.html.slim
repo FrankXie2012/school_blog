@@ -6,3 +6,5 @@
       - @links.each do |content, href|
         li = link_to "<i class=\"icon-hand-right\"></i>  #{content}".html_safe, 'http://news.cslg.cn/' + href.first.to_s
         li.divider
+.pull-right
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'
