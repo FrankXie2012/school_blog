@@ -27,7 +27,6 @@
   *border-bottom-width: 2px;
   li {
     background-color: #FFF;
-    border-top: solid 1px #DDD;
     margin: 0;
     padding: 0;
     a {
@@ -35,7 +34,7 @@
       display: block;
       padding: 3px;
     }
-    a.ui-state-hover, a.ui-state-active {
+    a.ui-state-focus {
       background-color: #FFFCB2;
       color: #ffffff;
       text-decoration: none;
