@@ -12,6 +12,24 @@ body{
   height: 100%;
 }
 
+header{
+  .navbar-inner#tabs{
+    border: 1px solid #BBB;
+    li{
+      text-align: center;
+      border-right: 1px solid #CFCFCF;
+      a{
+        &:hover{
+          color: $white !important;
+          background-color: #0A70FF !important;
+          text-shadow: none;
+          @include background-image(linear-gradient(lighten($blue, 12%), darken($blue, 8%)));
+        }
+      }
+    }
+  }
+}
+
 .wrapper{
   @include box-shadow;
   background: lighten($gray, 3%);
