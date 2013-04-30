@@ -1,29 +1,34 @@
 - if user_signed_in?
-  table.table-striped
-    tr
-      td Logo
-      td = image_tag(current_user.avatar, :size => "150x150") if current_user&&current_user.has_avatar
-    tr
-      td Name
-      td = current_user.name
-    tr
-      td Email
-      td = current_user.email
-    tr
-      td Gender
-      td = current_user.get_gender
-    tr
-      td Class
-      td = current_user.classroom
-    tr
-      td Phone
-      td = current_user.phone
-    tr
-      td Birthday
-      td = current_user.birthday.to_s
-    tr
-      td Hobby
-      td = current_user.hobby
-    tr
-      td Motto
-      td = current_user.motto
+  .box-group
+    .box-header
+      .title
+        span.icon-star &nbsp;
+        span &nbsp;
+        span = current_user.name
+    .box-inner
+      table.table.table-hover
+        tbody
+          tr
+            td Logo:
+            td = image_tag(current_user.avatar, :size => "140x140", class: 'img-rounded') if current_user&&current_user.has_avatar
+          tr
+            td Email:
+            td = current_user.email
+          tr
+            td Gender:
+            td = current_user.get_gender
+          tr
+            td Class:
+            td = current_user.classroom
+          tr
+            td Phone:
+            td = current_user.phone
+          tr
+            td Birthday:
+            td = current_user.birthday.to_s
+          tr
+            td Hobby:
+            td = current_user.hobby
+          tr
+            td Motto:
+            td = current_user.motto

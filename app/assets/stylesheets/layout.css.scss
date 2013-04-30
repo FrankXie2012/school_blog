@@ -48,3 +48,54 @@ footer{
 .circle-image{
   margin-top: 6px;
 }
+
+.box-group{
+  border: 1px solid $gray;
+  @include box-shadow;
+  margin: 10px 0px;
+  .box-header{
+    height: 28px;
+    @include background-image(linear-gradient(color-stops($gray, darken($gray, 8%))));
+    position: relative;
+    .title{
+      font-size: 18px;
+      line-height: 28px;
+      padding: 0px 5px;
+    }
+    .right-actions{
+      position: absolute;
+      right: 0px;
+      top: 5px;
+    }
+  }
+  .box-inner{
+    padding: 10px 0px;
+  }
+}
+
+ul.vnav{
+  @include no-bullet;
+  li{
+    border-bottom: 1px solid darken($gray, 10%);
+    a{
+      background: $gray;
+      display: block;
+      padding: 6px 0px 6px 10px;
+      &:hover, &.active{
+        background: $white;
+        text-decoration: none;
+        border-right: 2px solid $blue;
+      }
+    }
+    &.divider{
+      border-bottom: 1px solid darken($gray, 20%);
+    }
+    &.dark{
+      a{
+        @include background-image(linear-gradient(color-stops(lighten($gray,5%), darken($gray, 5%))));
+        color: lighten($dark, 18%);
+        font-weight: bold;
+      }
+    }
+  }
+}
