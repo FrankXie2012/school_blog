@@ -1,8 +1,13 @@
-table.table.table-hover
-  - @comments.each do |comment|
-    - if comment.id
-      tr
-        td = link_to comment.user.name, user_path(comment.user)
-        td = comment.created_at
-      tr
-        td = comment.body
+- @comments.each do |comment|
+  - if comment.id
+    .nav
+      .box-group
+        .box-inner
+          table.table.table-bordered
+            tr
+              td.w100[rowspan=2] = image_tag(comment.user.avatar, size: "80x80", class: 'img-rounded') if comment.user.has_avatar
+              td.bold = link_to comment.user.name, user_path(comment.user)
+              td.pull-right = comment.created_at
+            tr
+              td = comment.body
+              td

@@ -83,8 +83,13 @@ footer{
     }
     .right-actions{
       position: absolute;
-      right: 0px;
+      right: 5px;
       top: 5px;
+    }
+    #add_comment{
+      position: absolute;
+      right: 5px;
+      top: -1px;
     }
   }
   .box-inner{
