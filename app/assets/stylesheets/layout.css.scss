@@ -5,9 +5,11 @@
 .ralign{text-align: right !important;}
 
 body{
+  padding-top:42px;
   margin: auto;
   background: $white;
-  overflow: auto;
+  overflow: hidden;
+  height: 100%;
 }
 
 .wrapper{
@@ -22,15 +24,27 @@ body{
 }
 
 footer{
+  height: 38px;
   @include background-image(linear-gradient(lighten($gray, 3%), $gray 20%, darken($gray, 20%)));
-  *background: darken($gray, 5%);
   border-top: 1px solid darken($gray, 5%);
   color: darken($gray, 15%);
   line-height: 38px;
   .copyright{
     font-size: 12px;
     font-weight: bold;
+    color: #555;
     padding: 0px 10px;
-    color: #666;
   }
+  .row-fluid{
+    height: 38px;
+  }
+}
+
+.body-container{
+  padding: 10px 10px;
+  height:100%;
+}
+
+.circle-image{
+  margin-top: 6px;
 }

@@ -7,7 +7,7 @@
           li = link_to '<i class="icon-search"></i> '.html_safe, '#'
           li = text_field_tag :post, nil, placeholder: 'Enter User Name Or Post Title', class: 'autocomplete-search input-large search-query', style: 'margin-top: 6px'
           li.divider-vertical
-          li = image_tag(current_user.avatar, size: "40x40", class: 'img-circle')
+          li.circle-image = image_tag(current_user.avatar, size: "40x40", class: 'img-circle')
           li.div.dropdown
             a.dropdown-toggle data-toggle="dropdown"
               strong style="color: white;" #{current_user.name}
