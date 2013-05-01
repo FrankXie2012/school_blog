@@ -150,7 +150,8 @@ ul.vnav{
 .mid-form{
   width: 360px;
   margin: 20px auto;
-  border: 2px solid darken($gray, 15%);
+  border: 1px solid darken($gray, 15%);
+  @include box-shadow;
   @include box-sizing(border-box);
   .title{
     text-align: center;
