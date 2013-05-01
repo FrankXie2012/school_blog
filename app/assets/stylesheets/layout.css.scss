@@ -46,7 +46,7 @@ header{
 footer{
   height: 38px;
   @include background-image(linear-gradient(lighten($gray, 3%), $gray 20%, darken($gray, 20%)));
-  border-top: 1px solid darken($gray, 5%);
+  border-top: 1px solid darken($gray, 15%);
   color: darken($gray, 15%);
   line-height: 38px;
   .copyright{
@@ -160,8 +160,7 @@ ul.vnav{
     font-weight: bold;
     color: lighten($dark, 20%);
     padding: 10px;
-    @include background-image(linear-gradient(color-stops($blue, darken($white, 8%))));
-    border-bottom: 1px solid #E5E5E5;
+    @include background-image(linear-gradient(lighten($blue, 12%), darken($blue, 8%)));    border-bottom: 1px solid #E5E5E5;
   }
   form{
     margin: 20px !important;
@@ -214,4 +213,8 @@ ul.vnav{
 
 #add_padding{
   padding: 10px 10px;
+}
+
+#navbar_pull_right{
+  margin-right: -42px;
 }
