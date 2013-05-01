@@ -17,11 +17,11 @@
             - if resource.birthday
               - birthday = resource.birthday.strftime("%m/%d/%Y")
             - else
-              - birthday = '10/07/1991'
+              - birthday = '01/01/1990'
             = f.input :birthday, as: :string, input_html: {class: 'datepicker', value: birthday}
             = f.input :hobby
             = f.input :motto, input_html: {class: 'textfield'}
-            h5 Upload User Avatar
+            h5.red Upload User Avatar
             = f.file_field :avatar
             = f.hidden_field :avatar_cache
 

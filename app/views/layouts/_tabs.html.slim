@@ -10,7 +10,7 @@
           li.bold class={"active" if current_page?(posts_path)}
             = link_to 'My Posts', posts_path
           li.bold class={"active" if current_page?(new_post_path)}
-            = link_to 'New Post', [:new, :post]
+            = link_to '<i class="icon-pencil icon-large"></i> New Post'.html_safe, [:new, :post]
         - if current_user && current_user.is_admin?
           ul.nav.pull-right
             li.div.dropdown.bold class={"active" if current_page?(users_path) || current_page?(manage_posts_users_path) || current_page?(manage_comments_users_path)}
