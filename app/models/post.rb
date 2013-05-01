@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
 
   validates :content, :title, presence: true
   mount_uploader :avatar, AvatarUploader
+  paginates_per 10
 
   def has_avatar
     self.avatar_url rescue nil

@@ -24,4 +24,5 @@
                         i.icon-pencil  Edit
                       = link_to raw("<i class=\"icon-trash icon-white\"> Delete</i>").html_safe, post_comment_path(post, comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'
 .pull-right
+  = paginate @posts, theme: 'bootstrap'
   = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'

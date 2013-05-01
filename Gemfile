@@ -25,6 +25,7 @@ gem "friendly_id", "~> 4.0.9"
 gem 'thin'
 gem "nokogiri", "~> 1.5.9"
 gem "font-awesome-rails"
+gem 'kaminari'
 
 # uploader
 gem 'carrierwave'

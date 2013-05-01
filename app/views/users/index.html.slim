@@ -30,4 +30,5 @@
                 - else
                   td.center = f.submit 'Set To Admin', class: 'btn btn-success bold w170'
 .pull-right
+  = paginate @users, theme: 'bootstrap'
   = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'

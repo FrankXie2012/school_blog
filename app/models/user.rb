@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
                   :gender, :motto, :hobby, :phone, :birthday, :classroom, :avatar,
                   :avatar_cache, :address
 
+  paginates_per 10
   easy_roles :roles
   extend FriendlyId
   friendly_id :name

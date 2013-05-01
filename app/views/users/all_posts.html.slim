@@ -13,3 +13,5 @@
               td = image_tag(post.user.avatar, :size => "50x50", class: 'img-rounded') rescue nil
               td.bold = link_to post.title, post_path(post)
               td = link_to "<i class=\"icon-comments-alt\"></i> #{post.comments.length}".html_safe, post_path(post)
+.pull-right
+  = paginate @posts, theme: 'bootstrap'
