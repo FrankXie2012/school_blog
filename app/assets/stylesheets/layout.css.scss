@@ -151,6 +151,7 @@ ul.vnav{
   width: 360px;
   margin: 20px auto;
   border: 1px solid darken($gray, 15%);
+  font-weight: bold;
   @include box-shadow;
   @include box-sizing(border-box);
   .title{

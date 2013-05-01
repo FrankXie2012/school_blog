@@ -6,6 +6,6 @@
         = f.input :email, :required => false, :autofocus => true, input_html: {autocomplete: 'off'}
         = f.input :password, :required => false, input_html: {autocomplete: 'off'}
         = f.input :remember_me, :as => :boolean, label: 'Remember me on this computer' if devise_mapping.rememberable?
-        = f.button :submit, "Sign in", class: 'bold btn-info'
+        = f.button :submit, "Sign in", class: 'bold btn btn-primary'
       .form-actions
         = render "devise/shared/links"
