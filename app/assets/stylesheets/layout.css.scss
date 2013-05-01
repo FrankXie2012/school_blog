@@ -6,7 +6,7 @@
 .lalign{text-align: left !important;}
 
 body{
-  padding-top:42px;
+  padding-top:41px;
   margin: auto;
   background: $white;
   overflow: hidden;
@@ -35,7 +35,7 @@ header{
   @include box-shadow;
   background: lighten($gray, 3%);
   border: 1px solid #CCC\9;
-  width: 1124px;
+  width: 1024px;
 }
 
 .logo{

@@ -1,2 +1,2 @@
 jQuery ->
-  $('[data-behaviour~=datepicker]').datepicker()
+  $('.datepicker').datepicker()

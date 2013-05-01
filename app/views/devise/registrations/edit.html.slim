@@ -14,7 +14,7 @@
             = f.input :classroom, label: "Class"
             = f.input :gender, as: :select, collection: User::GENDER, include_blank: false
             = f.input :phone
-            = f.input :birthday
+            = f.input :birthday, as: :string, input_html: {class: 'datepicker', value: '10/07/1991'}
             = f.input :hobby
             = f.input :motto, input_html: {class: 'textfield'}
             h5 Upload User Avatar
