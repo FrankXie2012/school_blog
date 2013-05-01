@@ -14,7 +14,11 @@
             = f.input :classroom, label: "Class"
             = f.input :gender, as: :select, collection: User::GENDER, include_blank: false
             = f.input :phone
-            = f.input :birthday, as: :string, input_html: {class: 'datepicker', value: '10/07/1991'}
+            - if resource.birthday
+              - birthday = resource.birthday.strftime("%m/%d/%Y")
+            - else
+              - birthday = '10/07/1991'
+            = f.input :birthday, as: :string, input_html: {class: 'datepicker', value: birthday}
             = f.input :hobby
             = f.input :motto, input_html: {class: 'textfield'}
             h5 Upload User Avatar
@@ -29,6 +33,6 @@
         .title Cancel my account
       .box-inner#add_padding
         h4 Unhappy?
-        h4 = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
+        h4#white_visited_icon = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
 .pull-right
   = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'

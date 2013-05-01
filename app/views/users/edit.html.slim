@@ -1,20 +1,28 @@
-h2 Edit User
+.nav
+  .box-group
+    .box-header
+      .title.f200 Edit User
+    .box-inner#add_padding
+      = simple_form_for @user do |f|
+        .form-inputs
+          = f.input :email, required: true, autofocus: true
+          = f.input :name, required: true, label: "Username"
+          = f.input :address
+          = f.input :classroom, label: "Class"
+          = f.input :gender, as: :select, collection: User::GENDER, include_blank: false
+          = f.input :phone
+          - if @user.birthday
+            - birthday = @user.birthday.strftime("%m/%d/%Y")
+          - else
+            - birthday = '10/07/1991'
+          = f.input :birthday, as: :string, input_html: {class: 'datepicker', value: birthday}
+          = f.input :hobby
+          = f.input :motto, input_html: {class: 'textfield'}
+          h5 Upload User Avatar
+          = f.file_field :avatar
+          = f.hidden_field :avatar_cache
 
-= simple_form_for @user do |f|
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-    = f.input :name, required: true, label: "Username"
-    = f.input :address
-    = f.input :classroom, label: "Class"
-    = f.input :gender, as: :select, collection: User::GENDER, include_blank: false
-    = f.input :phone
-    = f.input :birthday
-    = f.input :hobby
-    = f.input :motto, input_html: {class: 'textfield'}
-    h5 Upload User Avatar
-    = f.file_field :avatar
-    = f.hidden_field :avatar_cache
-
-  .form-actions
-    = f.button :submit, "Update"
-= link_to "Back", :back
+        .form-actions
+          = f.button :submit, "Update", class: 'btn btn-primary bold'
+.pull-right
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'
