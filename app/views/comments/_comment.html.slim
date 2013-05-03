@@ -1,9 +1,15 @@
-tr[id="#{dom_id(comment, 'form')}"]
-  = simple_form_for [:modify, @post, comment], remote: true do |f|
-    td
-    td = comment.user.name
-    td.comment-body = f.input :body, label: false, as: :string, value: comment.body, input_html: {class: 'input-xlarge'}
-    td
-      = button_tag(type: 'submit', class: 'btn btn-warning bold', id: dom_id(comment, 'save')) do
-        i.icon-save  Save
-      = link_to raw("<i class=\"icon-trash icon-white\"> Delete</i>").html_safe, post_comment_path(@post, @comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'
+tr[id="#{dom_id(@comment, 'form')}"]
+  = simple_form_for [:modify, @post, @comment], remote: true do |f|
+    td[colspan=4]
+      .row-fluid
+        .span1
+        .span1
+          = link_to user_path(@comment.user) do
+            = image_tag(@comment.user.avatar, :size => "80x80", class: 'img-rounded') rescue nil
+        .span1.bold = @comment.user.name
+        .span5.comment-body = f.input :body, label: false, as: :string, value: @comment.body, input_html: {class: 'input-xlarge'}
+        .span4
+          = button_tag(type: 'submit', class: 'btn btn-warning bold', id: dom_id(@comment, 'save')) do
+            i.icon-save  Save
+          = ' '
+          = link_to raw("<i class=\"icon-trash icon-white\"> Delete</i>").html_safe, post_comment_path(@post, @comment), :confirm => 'Are you sure you want to destroy this @comment?', :method => :delete, class: 'btn btn-danger'
