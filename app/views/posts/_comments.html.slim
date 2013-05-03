@@ -3,11 +3,16 @@
     .nav
       .box-group
         .box-inner
-          table.table.table-bordered
-            tr
-              td.w100[rowspan=2] = image_tag(comment.user.avatar, size: "80x80", class: 'img-rounded') if comment.user.has_avatar
-              td.bold = link_to comment.user.name, user_path(comment.user)
-              td.pull-right = comment.created_at
-            tr
-              td = comment.body
-              td
+          .row-fluid
+            .span2
+              = link_to user_path(comment.user) do
+                = image_tag(comment.user.avatar, size: "80x80", class: 'img-rounded') if comment.user.has_avatar
+            .span10
+              .row-fluid
+                .span2.bold
+                  = link_to comment.user.name, user_path(comment.user)
+                .span8
+                .span2
+                  = time_ago_in_words(comment.created_at)
+              .row-fluid
+                .span12 = comment.body
