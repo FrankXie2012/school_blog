@@ -24,16 +24,5 @@
                       = link_to post.title, post_path(post)
                     .span2
                       = link_to "<i class=\"icon-comments-alt\"></i> #{post.comments.length}".html_safe, post_path(post)
-              / table.table-hover#full_width_table
-              /   tr
-              /     td = image_tag(post.user.avatar, :size => "50x50", class: 'img-rounded') rescue nil
-              /     td.bold = link_to post.title, post_path(post)
-              /     td = link_to "<i class=\"icon-comments-alt\"></i> #{post.comments.length}".html_safe, post_path(post)
 .pull-right
   = paginate @posts, theme: 'bootstrap'
-
-
-/ ul.vnav
-/   - @links.each do |content, href|
-/     li = link_to "<i class=\"icon-hand-right\"></i>  #{content}".html_safe, 'http://news.cslg.cn/' + href.first.to_s
-/     li.divider
