@@ -219,3 +219,11 @@ ul.vnav{
 #navbar_pull_right{
   margin-right: -42px;
 }
+
+*[data-link] {
+    cursor: pointer;
+}
+
+#no_margin_bottom_table{
+  margin-bottom: 0px;
+}
