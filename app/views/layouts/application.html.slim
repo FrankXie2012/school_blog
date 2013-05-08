@@ -15,6 +15,7 @@ html lang="en"
 
   body
     .wrapper.container
+      #top
       header
         .logo
         = render 'layouts/alert_and_notice'
@@ -29,6 +30,8 @@ html lang="en"
               = yield
           - else
             = yield
+      .div#message
+        a href="#top" Back to Top
       footer
         .row-fluid
           .span3
