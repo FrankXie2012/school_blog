@@ -46,6 +46,12 @@ class UsersController < ApplicationController
     @posts = Post.order("created_at DESC").page(params[:page])
   end
 
+  def sort_by_comments
+    @posts = Post.order("comments_count DESC").page(params[:page])
+    @posts.reload
+    render :all_posts
+  end
+
   def user_info
     @user = User.find(params[:id])
   end

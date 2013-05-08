@@ -1,6 +1,12 @@
 .nav
   .box-group
     .box-header
+      .pull-right.btn-group
+        a.btn.dropdown-toggle data-toggle="dropdown"
+          i.icon-sort
+        ul.dropdown-menu
+          li = link_to "<i class=\"icon-time\"></i> Created Date <i class=\"icon-arrow-down\"></i>".html_safe, root_path
+          li = link_to "<i class=\"icon-comments-alt\"></i> Popular <i class=\"icon-arrow-down\"></i>".html_safe, sort_by_comments_path
       .title.f200 Recent Posts
   .box-group
     .box-inner

@@ -27,5 +27,6 @@ SchoolBlog::Application.routes.draw do
   end
 
   resources :admins
+  match '/sort_by_comments' => 'users#sort_by_comments', :as => "sort_by_comments"
   root :to => "users#all_posts"
 end
