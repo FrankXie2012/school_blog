@@ -231,4 +231,7 @@ ul.vnav{
 #logo{
   font-weight: bold;
   color: white;
+  &:hover{
+    color: #0A70FF !important;
+  }
 }
