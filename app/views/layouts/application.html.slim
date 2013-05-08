@@ -14,23 +14,23 @@ html lang="en"
     = javascript_include_tag "application"
 
   body
-    .container
+    .wrapper.container
       header
+        .logo
         = render 'layouts/alert_and_notice'
         = render "layouts/navigation"
         = render "layouts/tabs"
-      .row-fluid
-        - if user_signed_in?
-          .span3
-            = render "layouts/user_info"
-          .span9
+      .body-container
+        .row-fluid
+          - if user_signed_in?
+            .span3
+              = render "layouts/user_info"
+            .span9
+              = yield
+          - else
             = yield
-        - else
-          = yield
       footer
         .row-fluid
-          .small
-            h4 CSLG &copy; 2013
-          .nav.pull-right
-            = link_to "About", '#'
-            = link_to "Contact", '#'
+          .span3
+            .copyright CSLG &copy; 2013
+          .span6

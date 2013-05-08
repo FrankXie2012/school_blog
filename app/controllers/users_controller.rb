@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :admin_required, only: :index
 
   def index
-    @users = User.all
+    @users = User.order("created_at DESC").page(params[:page])
   end
 
   def edit
@@ -43,7 +43,13 @@ class UsersController < ApplicationController
   end
 
   def all_posts
-    @posts = Post.all
+    @posts = Post.order("created_at DESC").page(params[:page])
+  end
+
+  def sort_by_comments
+    @posts = Post.order("comments_count DESC").page(params[:page])
+    @posts.reload
+    render :all_posts
   end
 
   def user_info
@@ -51,11 +57,11 @@ class UsersController < ApplicationController
   end
 
   def manage_posts
-    @posts = Post.all
+    @posts = Post.order("created_at DESC").page(params[:page])
   end
 
   def manage_comments
-    @posts = Post.all
+    @posts = Post.order("created_at DESC").page(params[:page])
   end
 
   def set_role

@@ -1,18 +1,31 @@
-.container-fluid
-  table.table-striped
+.nav
+  .box-group
+    .box-header
+      .title.f200 = "#{@post.user.name}"
+      .right-actions = "#{@post.created_at}"
+    .box-inner
+      table.table.table-striped
+        tr
+          h3.td.center = @post.title
+        tr
+          td.bold
+            = simple_format(@post.content)
+.nav
+  .box-group
+    .box-header
+      .title Comments
+      .right-actions#add_comment
+        = button_tag(class: "btn add-comment") do
+          i.icon-comment-alt  Comment
+    .box-inner
+      .comment-form.hidden
+        = render 'comment_form'
+      = render 'comments'
+.pull-right
+  table
     tr
-      h1.td.center = @post.title
-    tr
-      h4.td
-      	= image_tag(@post.avatar) if @post.avatar&&@post.has_avatar
-      	= simple_format(@post.content)
-
-= button_tag 'Comment', class: 'btn btn-success add-comment'
-.comment-form.hidden
-  = render 'comment_form'
-= render 'comments'
-
-- if @post.user == current_user || current_user.has_role?('admin')
-	= link_to 'Edit', edit_post_path(@post)
-
-= link_to 'Back', posts_path
+      td
+        - if @post.user == current_user || current_user.has_role?('admin')
+        	= link_to "<i class=\" icon-edit\"></i> Edit".html_safe, edit_post_path(@post), class: 'btn'
+      td
+        = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'

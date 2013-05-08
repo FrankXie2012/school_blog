@@ -1,3 +1,8 @@
 = simple_form_for [@post, @post.comments.build] do |f|
-  = f.input :body, label: false, input_html: {class: 'textfield'}
-  = f.button :submit, class: 'btn btn-primary'
+  table.table.table-striped
+    tr
+      td = image_tag(current_user.avatar, :size => "80x80", class: 'img-rounded') if current_user.has_avatar
+      td
+        = f.input :body, label: false, input_html: {class: 'textfield'}
+      td
+        = f.button :submit, class: 'btn btn-primary'

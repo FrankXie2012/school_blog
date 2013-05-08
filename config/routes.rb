@@ -6,11 +6,6 @@ SchoolBlog::Application.routes.draw do
       put :set_role
       post :set_role
     end
-    collection do
-      get :school_news
-      get :manage_posts
-      get :manage_comments
-    end
   end
 
   resources :posts do
@@ -27,8 +22,9 @@ SchoolBlog::Application.routes.draw do
   end
 
   resources :admins
-
-  match 'admins' => 'admins#index'
-
+  match '/school_news' => 'users#school_news', :as => "school_news"
+  match '/manage_posts' => 'users#manage_posts', :as => "manage_posts"
+  match '/manage_comments' => 'users#manage_comments', :as => "manage_comments"
+  match '/sort_by_comments' => 'users#sort_by_comments', :as => "sort_by_comments"
   root :to => "users#all_posts"
 end

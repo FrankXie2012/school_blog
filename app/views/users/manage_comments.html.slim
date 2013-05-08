@@ -1,18 +1,34 @@
-h1 Manage Comments
-.container
-  - @posts.each do |post|
-    table.table-hover
-      thead
-        tr
-          td.red = post.title
-          td = link_to post.user.name, user_path(post.user) rescue nil
-          td = button_tag 'Show comments', class: "btn btn-primary show-comments"
-      tbody.comments.hidden
-        - post.comments.each do |comment|
-          tr[id="#{dom_id(comment, 'row')}"]
-            = simple_form_for [:edit, post, comment], remote: true do |f|
-              td = comment.body
-              td = comment.user.name
-              td = f.submit 'Edit', class: 'btn btn-success bold'
-            td = button_to "Delete", post_comment_path(post, comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'
-  = link_to 'Back', admins_path
+.nav
+  .box-group
+      .box-header
+        .title.f200 Manage Comments
+      .box-inner
+        table.table.table-hover
+          - @posts.each do |post|
+            thead
+              tr
+                td = image_tag(post.user.avatar, size: "40x40", class: 'img-rounded') rescue nil
+                td.bold = link_to post.user.name, user_path(post.user)
+                td = post.title
+                td = button_tag(class: "btn btn-primary show-comments") do
+                  i.icon-comments  Show comments
+            tbody.comments.hidden
+              - post.comments.each do |comment|
+                tr[id="#{dom_id(comment, 'row')}"]
+                  = simple_form_for [:edit, post, comment], remote: true do |f|
+                    td[colspan=4]
+                      .row-fluid
+                        .span1
+                        .span1
+                          = link_to user_path(comment.user) do
+                            = image_tag(comment.user.avatar, :size => "80x80", class: 'img-rounded') rescue nil
+                        .span1.bold = comment.user.name
+                        .span5 = comment.body
+                        .span4
+                          = button_tag(type: 'submit', class: "btn btn-success bold w85") do
+                            i.icon-pencil  Edit
+                          = ' '
+                          = link_to raw("<i class=\"icon-trash icon-white\"> Delete</i>").html_safe, post_comment_path(post, comment), :confirm => 'Are you sure you want to destroy this comment?', :method => :delete, class: 'btn btn-danger'
+.pull-right
+  = paginate @posts, theme: 'bootstrap'
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'

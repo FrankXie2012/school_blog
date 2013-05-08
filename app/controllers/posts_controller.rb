@@ -2,8 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(user_id: current_user.id)
-
+    @posts = Post.where(user_id: current_user.id).page(params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }

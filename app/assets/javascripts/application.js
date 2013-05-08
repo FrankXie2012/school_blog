@@ -16,6 +16,7 @@
 //= require autocomplete-rails
 //= require bootstrap
 //= require bootstrap-datepicker
+//= require bootstrap-dropdown
 //
 //= require_tree .
 

@@ -1,11 +1,12 @@
 tr[id="#{dom_id(user, 'row')}"]
+  td.center
+    - if user.has_role? 'admin'
+      i.icon-user
   td = link_to user.name, user_path(user)
   td = user.email
-  td.center = user.sign_in_count
-  td.center = link_to 'User Info', user_info_user_path(user)
-  td = link_to 'Edit', edit_user_path(user)
-  td = link_to 'Destroy', user_path(user), :confirm => 'Are you sure you want to destroy this user?', :method => :delete
-  td.center.show-role = user.show_role rescue nil
+  td.center#white_visited_icon = link_to '<i class="icon-info-sign"></i>'.html_safe, user_info_user_path(user), class: 'btn'
+  td.center#white_visited_icon = link_to "<i class=\"icon-edit icon-white\"></i>".html_safe, edit_user_path(user), class: 'btn btn-warning'
+  td.center#white_visited_icon = link_to "<i class=\"icon-trash icon-white\"></i>".html_safe, user_path(user), :confirm => 'Are you sure you want to destroy this user?', :method => :delete, class: 'btn btn-danger'
   = simple_form_for [:set_role, user], remote: true do |f|
     - if user.has_role? 'admin'
       td = f.submit 'Set To Common User', class: 'btn btn-info bold'

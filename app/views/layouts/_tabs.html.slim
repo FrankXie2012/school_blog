@@ -1,11 +1,24 @@
 - if user_signed_in?
   .navbar
-    .navbar-inner
+    .navbar-inner#tabs
       .container
-        ul.nav
-          li = link_to 'Home', root_path
-          li = link_to 'School News', school_news_users_path
-          li = link_to 'My Posts', posts_path
-          li = link_to 'New Post', [:new, :post]
-          - if current_user && current_user.is_admin?
-            li = link_to "Admin", admins_path
+        ul.nav#tabs_ul
+          li.bold class={"active" if current_page?(root_path)}
+            = link_to '<i class="icon-home"></i> Home'.html_safe, root_path
+          li.bold class={"active" if current_page?(school_news_path)}
+            = link_to 'School News', school_news_path
+          li.bold class={"active" if current_page?(posts_path)}
+            = link_to 'My Posts', posts_path
+          li.bold class={"active" if current_page?(new_post_path)}
+            = link_to '<i class="icon-pencil icon-large"></i> New Post'.html_safe, [:new, :post]
+        - if current_user && current_user.is_admin?
+          ul.nav.pull-right
+            li.div.dropdown.bold class={"active" if current_page?(users_path) || current_page?(manage_posts_path) || current_page?(manage_comments_path)}
+              a.dropdown-toggle data-toggle="dropdown"
+                i.icon-cogs
+                | Admin
+                b class="caret"
+              ul.dropdown-menu
+                li.lalign = link_to '<i class="icon-user"></i> Manage Users'.html_safe, users_path
+                li.lalign = link_to '<i class="icon-edit"></i> Manage Posts'.html_safe, manage_posts_path
+                li.lalign = link_to '<i class="icon-comments"></i> Manage Comments'.html_safe, manage_comments_path

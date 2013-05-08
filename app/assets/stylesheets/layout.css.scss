@@ -1,0 +1,229 @@
+@import 'constant';
+@import 'base';
+
+.hidden{display: none;}
+.ralign{text-align: right !important;}
+.lalign{text-align: left !important;}
+
+body{
+  padding-top:41px;
+  margin: auto;
+  background: $white;
+  overflow: hidden;
+  height: 100%;
+}
+
+header{
+  .navbar-inner#tabs{
+    border: 1px solid #BBB;
+    li{
+      text-align: center;
+      border-right: 1px solid #CFCFCF;
+      a{
+        &:hover{
+          color: $white !important;
+          background-color: #0A70FF !important;
+          text-shadow: none;
+          @include background-image(linear-gradient(lighten($blue, 12%), darken($blue, 8%)));
+        }
+      }
+    }
+  }
+}
+
+.wrapper{
+  @include box-shadow;
+  background: lighten($gray, 3%);
+  border: 1px solid #CCC\9;
+  width: 1024px;
+}
+
+.logo{
+  background-image: image-url('logo2010.jpg');
+  height: 110px;
+}
+
+footer{
+  height: 38px;
+  @include background-image(linear-gradient(lighten($gray, 3%), $gray 20%, darken($gray, 20%)));
+  border-top: 1px solid darken($gray, 15%);
+  color: darken($gray, 15%);
+  line-height: 38px;
+  .copyright{
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+    padding: 0px 10px;
+  }
+  .row-fluid{
+    height: 38px;
+  }
+}
+
+.body-container{
+  padding: 10px 10px;
+  height:100%;
+}
+
+.circle-image{
+  margin-top: 6px;
+}
+
+.box-group{
+  border: 1px solid $gray;
+  @include box-shadow;
+  margin: 10px 0px;
+  .box-header{
+    height: 28px;
+    @include background-image(linear-gradient(color-stops($gray, darken($gray, 8%))));
+    position: relative;
+    .title{
+      font-size: 18px;
+      line-height: 28px;
+      padding: 0px 5px;
+    }
+    .right-actions{
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+    #add_comment{
+      position: absolute;
+      right: 5px;
+      top: -1px;
+    }
+  }
+  .box-inner{
+    padding: 10px 0px;
+  }
+}
+
+ul.vnav{
+  @include no-bullet;
+  li{
+    border-bottom: 1px solid darken($gray, 10%);
+    a{
+      background: $gray;
+      display: block;
+      padding: 6px 0px 6px 10px;
+      &:hover, &.active{
+        color: $blue;
+        background: $white;
+        text-decoration: none;
+        border-right: 2px solid $blue;
+      }
+    }
+    &.divider{
+      border-bottom: 1px solid darken($gray, 20%);
+    }
+    &.dark{
+      a{
+        @include background-image(linear-gradient(color-stops(lighten($gray,5%), darken($gray, 5%))));
+        color: lighten($dark, 18%);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#full_width_table{
+  width: 100%
+}
+
+.autocomplete-search{
+  margin-top: 6px
+}
+
+#white_visited_icon{
+  a {
+    color: #fff;
+    &:visited {
+      color: #fff;
+    }
+    &:hover {
+      color: #ccc;
+      text-decoration: none;
+    }
+  }
+}
+
+.mid-form{
+  width: 360px;
+  margin: 20px auto;
+  border: 1px solid darken($gray, 15%);
+  font-weight: bold;
+  @include box-shadow;
+  @include box-sizing(border-box);
+  .title{
+    text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    color: lighten($dark, 20%);
+    padding: 10px;
+    @include background-image(linear-gradient(lighten($blue, 12%), darken($blue, 8%)));    border-bottom: 1px solid #E5E5E5;
+  }
+  form{
+    margin: 20px !important;
+    input{
+      &[type=text], &[type=password], &[type=email]{
+        width: 306px;
+      }
+      &[type=submit]{
+       width: 320px;
+       *margin-left: 0px;
+      }
+    }
+    .form-actions{
+      padding: 5px 10px;
+      border: 1px solid #E5E5E5;
+      a{
+        color: lighten($dark, 10%);
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.main{
+  padding: 10px 10px 5px 10px;
+  .header{
+    border-bottom: 1px solid darken($gray, 15%);
+    padding: 0px;
+    position: relative;
+    .title{
+      font-size: 22px;
+      color: #333;
+      line-height: 32px;
+    }
+    .right-actions{
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      a{
+        font-weight: bold;
+        margin-left: 5px;
+        padding: 0px 5px;
+      }
+    }
+  }
+  .content{
+    padding: 15px 2px;
+  }
+}
+
+#add_padding{
+  padding: 10px 10px;
+}
+
+#navbar_pull_right{
+  margin-right: -42px;
+}
+
+*[data-link] {
+    cursor: pointer;
+}
+
+#no_margin_bottom_table{
+  margin-bottom: 0px;
+}

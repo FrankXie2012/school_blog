@@ -1,9 +1,32 @@
-h1 = "#{current_user.name}'s posts"
-.container
-  - @posts.each do |post|
-    .row-fluid
-      .span3 = post.created_at
-      .span6 = link_to post.title, post_path(post)
-      .span1 = link_to 'Edit', edit_post_path(post)
-      .span2 = link_to 'Delete', post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
-= link_to 'New Post', new_post_path
+.nav
+  .box-group
+    .box-header
+      .title.f200 = "#{current_user.name}'s Posts"
+    .box-inner
+      - @posts.each do |post|
+        table.table.table-hover#no_margin_bottom_table
+          tr[data-link="#{post_path(post)}"]
+            td
+              .row-fluid
+                .span2
+                  = link_to user_path(post.user) do
+                    = image_tag(post.user.avatar, :size => "80x80", class: 'img-rounded') rescue nil
+                .span10
+                  .row-fluid
+                    .span2.bold
+                      = link_to post.user.name, user_path(post.user) rescue nil
+                    .span8
+                    .span2
+                      = time_ago_in_words(post.created_at)
+                  .row-fluid
+                    .span9
+                      = link_to post.title, post_path(post)
+                    .span1
+                      = link_to "<i class=\"icon-edit icon-white\"></i>".html_safe, edit_post_path(post)
+                    .span1
+                      = link_to "<i class=\"icon-trash icon-white\"></i>".html_safe, post_path(post), :confirm => 'Are you sure you want to destroy this post?', :method => :delete
+                    .span1
+                      = link_to "<i class=\"icon-comments-alt\"></i> #{post.comments.length}".html_safe, post_path(post)
+.pull-right
+  = paginate @posts, theme: 'bootstrap'
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'
