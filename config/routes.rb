@@ -1,10 +1,13 @@
 SchoolBlog::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
   resources :users do
     member do
       get :user_info
       put :set_role
       post :set_role
+    end
+    collection do
+      get :crop
     end
   end
 

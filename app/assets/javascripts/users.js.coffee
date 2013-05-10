@@ -1,4 +1,5 @@
 jQuery ->
+  $('#cropbox').Jcrop()
   $ ->
     $(".autocomplete-search").autocomplete
       source: (request, response) ->
