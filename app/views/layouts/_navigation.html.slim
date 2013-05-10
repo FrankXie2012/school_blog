@@ -1,7 +1,7 @@
 .navbar.navbar-fixed-top.navbar-inverse
   .navbar-inner
     .container
-      = link_to "School Blog", root_path, id: "logo", class: 'brand'
+      = link_to "SCHOOL BLOG", root_path, id: "logo", class: 'brand'
       ul.nav.pull-right#navbar_pull_right
         - if user_signed_in?
           li = link_to '<i class="icon-search"></i> '.html_safe, '#'
