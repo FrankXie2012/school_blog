@@ -1,10 +1,8 @@
-h1 Editing post
-
-== render 'form'
-
-= link_to 'Show', @post
-'|
-- if current_user.has_role?('admin')
-	= link_to 'Back', root_path
-- else
-	= link_to 'Back', posts_path
+.nav
+  .box-group
+    .box-header
+      .title.f200 Editing post
+    .box-inner
+      == render 'form'
+.pull-right
+  = link_to "<i class=\" icon-arrow-left\"></i> Back".html_safe, :back, class: 'btn'

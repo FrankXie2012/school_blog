@@ -9,7 +9,7 @@
                 = image_tag(comment.user.avatar, size: "80x80", class: 'img-rounded') if comment.user.has_avatar
             .span10
               .row-fluid
-                .span2.bold
+                .span2.bold.f130
                   = link_to comment.user.name, user_path(comment.user)
                 .span8
                 .span2
