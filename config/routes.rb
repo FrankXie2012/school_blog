@@ -21,7 +21,6 @@ SchoolBlog::Application.routes.draw do
     end
   end
 
-  resources :admins
   match '/school_news' => 'users#school_news', :as => "school_news"
   match '/manage_posts' => 'users#manage_posts', :as => "manage_posts"
   match '/manage_comments' => 'users#manage_comments', :as => "manage_comments"
